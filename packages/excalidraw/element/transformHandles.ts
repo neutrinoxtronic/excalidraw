@@ -257,6 +257,12 @@ export const getTransformHandlesFromCoords = (
     }
   }
 
+  // We only want to show complete handles above a certain size
+  // if (!showAllTransformHandles(width, height, zoom)) {
+  //   transformHandles.ne = undefined;
+  //   transformHandles.sw = undefined;
+  // }
+
   return transformHandles;
 };
 

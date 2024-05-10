@@ -800,26 +800,15 @@ describe("textWysiwyg", () => {
       mouse.down();
 
       const text = h.elements[1] as ExcalidrawTextElementWithContainer;
-      let editor = await getTextEditor(textEditorSelector, true);
+      const editor = await getTextEditor(textEditorSelector, true);
 
       await new Promise((r) => setTimeout(r, 0));
       updateTextEditor(editor, "Hello World!");
       editor.blur();
       expect(text.fontFamily).toEqual(FONT_FAMILY.Virgil);
-      UI.clickTool("text");
 
-      mouse.clickAt(
-        rectangle.x + rectangle.width / 2,
-        rectangle.y + rectangle.height / 2,
-      );
-      mouse.down();
-      editor = await getTextEditor(textEditorSelector, true);
-
-      editor.select();
       fireEvent.click(screen.getByTitle(/code/i));
 
-      await new Promise((r) => setTimeout(r, 0));
-      editor.blur();
       expect(
         (h.elements[1] as ExcalidrawTextElementWithContainer).fontFamily,
       ).toEqual(FONT_FAMILY.Cascadia);

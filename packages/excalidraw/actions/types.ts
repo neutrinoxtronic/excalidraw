@@ -134,7 +134,8 @@ export type ActionName =
   | "setEmbeddableAsActiveTool"
   | "createContainerFromText"
   | "wrapTextInContainer"
-  | "commandPalette";
+  | "commandPalette"
+  | "unwrapText";
 
 export type PanelComponentProps = {
   elements: readonly ExcalidrawElement[];
